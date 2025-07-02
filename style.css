@@ -1,0 +1,183 @@
+/* 全体のリセットと基本スタイル */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* ヘッダー */
+  header {
+    background-color: #111;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  /* ラッパーのレイアウト設定 */
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .site-header .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+  }
+
+  /* ロゴ部分 */
+  .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  /* ナビゲーションリストの右寄せ */
+  .nav-list {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-list li a {
+    color: #ff7f2a;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .nav-list li a:hover {
+    text-decoration: underline;
+  }
+
+  .services {
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+  }
+  
+  /* services直下のテキスト要素に幅制限+中央寄せ */
+  .services, .project, .service{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Heroセクション */
+  .hero {
+    background-color: #ff7f2a;
+    color: #fff;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    .company-data {
+      grid-template-columns: 1fr;
+    }
+  
+    .company-data dt {
+      margin-top: 1rem;
+    }
+  }
+
+  .company-data {
+    display: grid;
+    grid-template-columns: 150px 1fr;  /* 項目名と内容を2列で */
+    row-gap: 1rem;
+    column-gap: 1rem;
+    margin: 2rem 0;
+    padding-left: 2rem;
+  }
+  
+  .company-data dt {
+    font-weight: bold;
+    color: #111;
+  }
+  
+  .company-data dd {
+    margin: 0;  /* デフォルトの左インデントを消す */
+  }
+  
+  /* 事業紹介など */
+  section {
+    padding: 2rem 1rem;
+  }
+  
+  .services {
+    background-color: #f9f9f9;
+  }
+  
+  .services a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .services a:hover {
+    background-color: #333;
+  }
+  
+  /* 施工事例（works.html）用 */
+  .project {
+    margin-bottom: 2rem;
+  }
+  
+  .project img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .contact ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .contact a {
+    color: #ff7f2a;
+    text-decoration: none;
+  }
+  
+  .contact a:hover {
+    text-decoration: underline;
+  }
+  
+  /* フッター */
+  footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  .footer-list {
+    list-style: none;
+  }

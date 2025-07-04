@@ -2,15 +2,18 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>施工事例 - 坂口創造建設</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
     <!-- header -->
     <header class="site-header">
       <div class="wrapper">
         <h1 class="logo"><a href="index.html"><small>株式会社 </small><span>坂口創造建設</span></a></h1>
-        <nav>
+        <nav class="main-nav">
+          <button class="nav-toggle" aria-label="メニュー切替">☰</button>
           <ul class="nav-list">
             <li><a href="index.html">トップ</a></li>
             <li><a href="about.html">会社概要</a></li>
@@ -22,31 +25,52 @@
       </div>
     </header>
 
-  <main>
-      
-    <section class="project">
-        <h2>施工事例</h2>
-        <h3>住宅リフォーム（船橋市）</h3>
-        <img src="images/sample.jpg" alt="船橋市の住宅リフォーム写真">
-        <p>築40年の一戸建てを、断熱性・デザイン性の高い快適な住空間へとリフォームしました。</p>
-    </section>
+    <main>
+      <h2 class="area-title">施工事例</h2>
+      <div class="project-area">
+        <section class="project">
+            <h3>住宅リフォーム（船橋市）</h3>
+            <img src="images/sample.jpg" alt="船橋市の住宅リフォーム写真">
+            <p>築40年の一戸建てを、断熱性・デザイン性の高い快適な住空間へとリフォームしました。</p>
+        </section>
 
-    <section class="project">
-      <h3>美容室店舗設計（松戸市）</h3>
-      <img src="images/sample.jpg" alt="松戸市の美容室店舗写真">
-      <p>木の温もりを活かしたナチュラル空間で、お客様の滞在時間が心地よくなるよう設計しました。</p>
-    </section>
-  </main>
+        <section class="project">
+          <h3>美容室店舗設計（松戸市）</h3>
+          <img src="images/sample2.jpg" alt="松戸市の美容室店舗写真">
+          <p>木の温もりを活かしたナチュラル空間で、お客様の滞在時間が心地よくなるよう設計しました。</p>
+        </section>
+
+        <section class="project">
+            <h3>住宅リフォーム（自由が丘）</h3>
+            <img src="images/hero.jpg" alt="船橋市の住宅リフォーム写真">
+            <p>築40年の一戸建てを、断熱性・デザイン性の高い快適な住空間へとリフォームしました。</p>
+        </section>
+
+        <section class="project">
+          <h3>美容室店舗設計（世田谷）</h3>
+          <img src="images/sample.jpg" alt="松戸市の美容室店舗写真">
+          <p>木の温もりを活かしたナチュラル空間で、お客様の滞在時間が心地よくなるよう設計しました。</p>
+        </section>
+
+      </div>
+    </main>
 
   <footer>
     <div class="wrapper">
-      <small>&copy; <a href="index.html"> 株式会社 坂口創造建設</a>
-      <ul class="footer-list">
-        <li>本社：〒171-0022 東京都豊島区南池袋2-12-5 第三中野ビル7F A号室</li>
-        <li>Tel：<a href="tel:09085273331">090-8527-3331</a>　Mail：<a href="mailto:sakagchi.masaki@gmail.com">sakagchi.masaki@gmail.com</a></li>
-        <li>建設業許可：東京都知事許可（般-7）第160305号</li>
-        <li>Designed & coded by Yukimura</li>
-      </ul></small>
+      <small>
+        <div class="footer-contents">
+          <section class="footer-list">
+            <a href="index.html"><strong>株式会社 坂口創造建設</strong></a>
+            <p>本社：〒171-0022 東京都豊島区南池袋2-12-5 第三中野ビル7F A号室</p>
+            <p>建設業許可：東京都知事許可（般-7）第160305号</p>
+          </section>
+          <section class="contact-brock">
+            <p>Tel：<a href="tel:09085273331">090-8527-3331</a></p>
+            <p>Mail：<a href="mailto:sakagchi.masaki@gmail.com">sakagchi.masaki@gmail.com</a></p>
+          </section>
+        </div>
+        <p class="credit">&copy;Designed & coded by Yukimura</p>
+      </small>
     </div>
   </footer>
 </body>

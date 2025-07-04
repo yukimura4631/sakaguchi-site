@@ -1,4 +1,10 @@
 /* 全体のリセットと基本スタイル */
+:root {
+  --orange: #f4793e;
+  --black: #111;
+  --white: #fff;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
@@ -23,13 +29,15 @@ body {
     z-index: 1000; /* 他の要素より前面に出す */  
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     background-color: #111;
-    color: #ff7f2a;
+    color: var(--orange);
     padding: 1rem;
   }
   
   header .logo {
     margin: 0;
     font-size: 2rem;
+    flex-shrink: 1;          /* 縮んでもいいよって許可 */
+    min-width: 80px;         /* 最小サイズは設定する！ */
   }
 
   .logo, span {
@@ -37,7 +45,11 @@ body {
   }
   .logo a small,
   .logo a span {
-    color: #ff7f2a;
+    color: var(--orange);
+    }
+  .logo {
+    white-space: nowrap;
+    display: inline-block; /* or flex */
   }
   
   /* ラッパーのレイアウト設定 */
@@ -49,10 +61,10 @@ body {
   
   .site-header .wrapper {
     display: flex;
+    flex-wrap: nowrap;      /* 強制的に横並び維持 */
     align-items: center;
     justify-content: space-between;
-    max-width: 1100px;
-    margin: 0 auto;
+    min-width: 0;           /* 子要素が縮むのを妨げない */
   }
 
   /* ロゴ部分 */
@@ -65,20 +77,152 @@ body {
   /* ナビゲーションリストの右寄せ */
   .nav-list {
     display: flex;
+    white-space: nowrap;
     gap: 1rem;
     margin: 0;
     padding: 0;
     list-style: none;
+    flex-shrink: 1;
   }
 
   .nav-list li a {
-    color: #ff7f2a;
+    color: var(--orange);
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.2rem;
   }
 
   .nav-list li a:hover {
     text-decoration: underline;
+  }
+
+  .nav-toggle {
+    display: none; /* ← PCサイズで非表示にする */
+  }
+  
+  .map {
+    width: 80%;
+    aspect-ratio: 1 / 1; /* ← 幅と高さを同じにする */
+    object-fit: cover;   /* はみ出た部分をトリミング（必要なら） */
+  }
+
+  .about-content{
+    padding-left: 10rem;
+    margin-left: 5rem;
+  }
+
+  .history {
+    padding: 0 2rem;
+  }
+  
+  .company-overview {
+    padding: 0 1rem;
+  }
+  .company-data {
+    margin-left: 0;
+    padding-left: 2rem !important;
+  }
+
+  .access {
+    padding: 0 2rem;
+  }
+
+
+  @media screen and (max-width: 800px) {
+    .site-header {
+      height: fit-content;
+      padding: 0 1rem;
+      position: relative; /* ← これが重要！ */
+      position: sticky;
+      top: 0;
+      z-index: 1000;    
+    }
+
+    .logo {
+      display: inline-block;
+      transform: scale(0.6);
+      transform-origin: left center;
+    }
+    
+    .nav-list {
+      font-size: 0.7rem !important;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+      position: absolute;
+      top: 100%; /* ヘッダーの真下に表示 */
+      right: 0;
+      background-color: #111; /* 必要なら背景追加 */
+      width: auto;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+    }  
+  
+    .nav-toggle {
+      display: flex;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--orange);
+      margin-left: auto;
+    }
+  
+    .main-nav {
+      position: relative;
+    }
+    .main-nav.open .nav-list {
+      max-height: 500px; /* 十分な高さに設定（必要なら大きめで） */
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+      transition-delay: 0s; /* visibilityを即表示 */
+    }
+  
+    .map {
+      width: 100%;
+    }
+    
+    .top-image {
+      margin: 0.5rem 1rem !important;
+    }
+
+    footer {
+      margin-top: 1rem;
+    }
+    .footer-list, .contact-brock {
+      margin: 0;
+    }
+    
+    .footer-contents {
+      gap: 0 !important;
+    }
+    
+    .contact-brock {
+      padding-top: 3;
+    }
+    
+  }
+  
+  @media screen and (max-width: 600px) {
+    .footer-list {
+      line-height: 1 !important;
+    }
+    
+    .contact-brock {
+      padding-top: 0;
+      margin: 0 !important;      
+    }
+
+    .about-content {
+      font-size: 80%;
+    }
+  
+    .company-data {
+      column-gap: 0 !important;
+    }
   }
 
   .services {
@@ -95,38 +239,47 @@ body {
   
   /* Heroセクション */
   .hero {
-    background-color: #ff7f2a;
+    background-color: var(--orange);
     color: #fff;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     text-align: center;
+    max-width: 100%;
+    height: auto;
+    font-size: clamp(0.5rem, 3vw, 1.2rem);
   }
   
   .hero h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .top-image {
     text-align: center;
-    margin: 0; /* 上下の余白はお好みで */
-    padding: 0%;
+    margin: 0.2rem 12rem; /* 上下の余白はお好みで */
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
   }
   
-  .top-image img {
-    max-width: 100%;
-    height: auto;
+  .slideshow {
+    position: relative;
+    height: 100%;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 0;
   }
 
-  @media screen and (max-width: 600px) {
-    .company-data dt {
-      font-size: 1rem;
-      font-weight: bold;
-      margin-bottom: 0.3rem;
-    }
-  
-    .company-data dd {
-      margin-bottom: 1rem;
-    }
+  .slide.active {
+    opacity: 1;
+    z-index: 1;
   }
 
   .company-data {
@@ -150,9 +303,22 @@ body {
   section {
     padding: 2rem 1rem;
   }
+
+  .services {
+    padding: 0 2rem;
+  }
+
+  .service ul {
+    padding-left: 1rem;
+  }
+
+  .service img {
+    max-width: 100%;
+  }
   
   .services a {
     display: inline-block;
+    background-color: var(--orange);
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     text-decoration: none;
@@ -162,17 +328,63 @@ body {
   .services a:hover {
     background-color: #333;
   }
+
+  /* 事業内容（services.html）用 */
+  .service {
+    padding: 0 3rem 1rem 3rem;
+  }
   
   /* 施工事例（works.html）用 */
+  .area-title {
+    margin-left: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .project-area {
+    padding: 0 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 0rem;
+  }
+
   .project {
+    flex: 1 1 calc(50% - 1rem);
+    box-sizing: border-box;
     margin-bottom: 2rem;
+    max-width: 600px;
   }
   
   .project img {
     width: 100%;
-    max-width: 500px;
+    height: auto;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    object-fit: cover;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+  }
+
+  @media screen and (max-width: 600px) {
+    .project {
+      flex: 1 1 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .area-title h2 {
+      font-size: 130%;
+      margin-bottom: 0;
+    }
+
+    .project-area {
+      font-size: 90%;
+    }
+    .contact ul li{
+      font-size: 100%;
+    }
+  }
+
+  /* お問い合わせ(contact.html)用 */
+  .contact {
+    padding: 0 3rem 1rem 3rem;
   }
 
   .contact ul {
@@ -185,7 +397,7 @@ body {
   }
   
   .contact a {
-    color: #ff7f2a;
+    color: var(--orange);
     text-decoration: none;
   }
   
@@ -197,11 +409,41 @@ body {
   footer {
     background-color: #111;
     color: #fff;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+    /* text-align: center; */
+    padding: 0rem;
+    margin-top: 1rem;
+    display: flex;
   }
 
-  .footer-list {
-    list-style: none;
+
+  .footer-contents {
+    display: flex;
+    justify-content: space-between; /* 両端配置（好みに応じて変えられる） */
+    align-items: flex-start;        /* 上揃え */
+    gap: 6rem;                      /* 間隔調整（必要なら） */
+    flex-wrap: wrap;                /* スマホでは折り返せるように */
   }
+  
+  .footer-list {
+    line-height: 1.2;
+    margin: 0;
+    padding-bottom: 0;
+  }
+  .footer-list strong {
+    font-size: 1rem;
+  }
+
+  .contact-brock {
+    margin-top: 1rem; /* 他要素との間に余白 */
+    line-height: 0.6;
+    margin: 0.7rem 0 0 0;
+    padding-bottom: 0;
+    font-size: 1.05rem;
+  }
+  .credit {
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0;
+  }
+
+  

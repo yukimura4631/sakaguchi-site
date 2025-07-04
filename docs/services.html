@@ -2,15 +2,18 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>事業内容 - 坂口創造建設</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
     <!-- header -->
     <header class="site-header">
       <div class="wrapper">
         <h1 class="logo"><a href="index.html"><small>株式会社 </small><span>坂口創造建設</span></a></h1>
-        <nav>
+        <nav class="main-nav">
+          <button class="nav-toggle" aria-label="メニュー切替">☰</button>
           <ul class="nav-list">
             <li><a href="index.html">トップ</a></li>
             <li><a href="about.html">会社概要</a></li>
@@ -23,15 +26,18 @@
     </header>
 
   <main>
+    <h2 class="area-title">事業内容</h2>
     <section class="service">
-      <h2>事業内容</h2>
       <p>坂口創造建設では、お客様のニーズに合わせた空間づくりを提供しています。</p>
-
       <ul>
         <li><strong>住宅施工：</strong>新築・リフォーム・増改築に対応</li>
+          <img src="images/main.jpg" alt="施工風景1">
         <li><strong>店舗リノベーション：</strong>店舗イメージ設計から施工までサポート</li>
-        <li><strong>設計提案・企画：</strong>図面作成から素材選定まで一貫対応</li>
-        <li><strong>外構・造園工事：</strong>住まいの顔となる庭・玄関まわりの施工</li>
+          <img src="images/sample4.jpg" alt="施工風景2">
+        <li><strong>戸建て解体：</strong>図面作成から素材選定まで一貫対応</li>
+          <img src="images/sample3.jpg" alt="施工風景3">
+        <li><strong>整地掘削：</strong>住まいの顔となる庭・玄関まわりの施工</li>
+          <img src="images/shovel.jpg" alt="施工風景4">
       </ul>
 
       <p>まずはお気軽にご相談ください。理想の住空間を一緒に形にしていきます。</p>
@@ -40,13 +46,20 @@
 
   <footer>
     <div class="wrapper">
-      <small>&copy; <a href="index.html"> 株式会社 坂口創造建設</a>
-      <ul class="footer-list">
-        <li>本社：〒171-0022 東京都豊島区南池袋2-12-5 第三中野ビル7F A号室</li>
-        <li>Tel：<a href="tel:09085273331">090-8527-3331</a>　Mail：<a href="mailto:sakagchi.masaki@gmail.com">sakagchi.masaki@gmail.com</a></li>
-        <li>建設業許可：東京都知事許可（般-7）第160305号</li>
-        <li>Designed & coded by Yukimura</li>
-      </ul></small>
+      <small>
+        <div class="footer-contents">
+          <section class="footer-list">
+            <a href="index.html"><strong>株式会社 坂口創造建設</strong></a>
+            <p>本社：〒171-0022 東京都豊島区南池袋2-12-5 第三中野ビル7F A号室</p>
+            <p>建設業許可：東京都知事許可（般-7）第160305号</p>
+          </section>
+          <section class="contact-brock">
+            <p>Tel：<a href="tel:09085273331">090-8527-3331</a></p>
+            <p>Mail：<a href="mailto:sakagchi.masaki@gmail.com">sakagchi.masaki@gmail.com</a></p>
+          </section>
+        </div>
+        <p class="credit">&copy;Designed & coded by Yukimura</p>
+      </small>
     </div>
   </footer>
 </body>

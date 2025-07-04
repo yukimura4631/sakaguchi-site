@@ -2,15 +2,18 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ - 坂口創造建設</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
     <!-- header -->
     <header class="site-header">
       <div class="wrapper">
         <h1 class="logo"><a href="index.html"><small>株式会社 </small><span>坂口創造建設</span></a></h1>
-        <nav>
+        <nav class="main-nav">
+          <button class="nav-toggle" aria-label="メニュー切替">☰</button>
           <ul class="nav-list">
             <li><a href="index.html">トップ</a></li>
             <li><a href="about.html">会社概要</a></li>
@@ -24,10 +27,9 @@
 
   <main>
     <div class="wrapper">
+      <h2 class="area-title">お問い合わせ</h2>
       <section class="contact">
-        <h2>お問い合わせ</h2>
         <p>坂口創造建設へのご相談・お見積もりは下記までお気軽にご連絡ください。</p>
-
         <ul>
           <li><strong>電話：</strong><a href="tel:09085273331">090-8527-3331</a></li>
           <li><strong>メール：</strong><a href="mailto:sakagchi.masaki@gmail.com">sakagchi.masaki@gmail.com</a></li>
@@ -40,13 +42,20 @@
 
   <footer>
     <div class="wrapper">
-      <small>&copy; <a href="index.html"> 株式会社 坂口創造建設</a>
-      <ul class="footer-list">
-        <li>本社：〒171-0022 東京都豊島区南池袋2-12-5 第三中野ビル7F A号室</li>
-        <li>Tel：<a href="tel:09085273331">090-8527-3331</a>　Mail：<a href="mailto:sakagchi.masaki@gmail.com">sakagchi.masaki@gmail.com</a></li>
-        <li>建設業許可：東京都知事許可（般-7）第160305号</li>
-        <li>Designed & coded by Yukimura</li>
-      </ul></small>
+      <small>
+        <div class="footer-contents">
+          <section class="footer-list">
+            <a href="index.html"><strong>株式会社 坂口創造建設</strong></a>
+            <p>本社：〒171-0022 東京都豊島区南池袋2-12-5 第三中野ビル7F A号室</p>
+            <p>建設業許可：東京都知事許可（般-7）第160305号</p>
+          </section>
+          <section class="contact-brock">
+            <p>Tel：<a href="tel:09085273331">090-8527-3331</a></p>
+            <p>Mail：<a href="mailto:sakagchi.masaki@gmail.com">sakagchi.masaki@gmail.com</a></p>
+          </section>
+        </div>
+        <p class="credit">&copy;Designed & coded by Yukimura</p>
+      </small>
     </div>
   </footer>
 </body>

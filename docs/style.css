@@ -1,8 +1,8 @@
 /* 全体のリセットと基本スタイル */
 :root {
   --orange: #f4793e;
-  --black: #111;
-  --white: #fff;
+  --black: #1b1a1a;
+  --white-gray: hsl(0, 2%, 80%);
 }
 
 body {
@@ -28,36 +28,65 @@ body {
     top: 0;
     z-index: 1000; /* 他の要素より前面に出す */  
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    background-color: #111;
-    color: var(--orange);
+    background-color: var(--black);
+    color: var(--white-gray);
     padding: 1rem;
   }
-  
-  header .logo {
+
+  .header-icon {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .left-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* ← ロゴとアイコンの間に余白 */
+    width: 85%;
+    margin-left: 1rem;
+  }
+
+  header .logo, 
+  .header-icon {
     margin: 0;
     font-size: 2rem;
     flex-shrink: 1;          /* 縮んでもいいよって許可 */
-    min-width: 80px;         /* 最小サイズは設定する！ */
+    min-width: 70px;         /* 最小サイズは設定する！ */
   }
 
-  .logo, span {
+  /* ロゴ設定 */
+  .logo strong {
     font-size: 2rem;
-  }
-  .logo a small,
-  .logo a span {
-    color: var(--orange);
-    }
-  .logo {
     white-space: nowrap;
-    display: inline-block; /* or flex */
+    display: inline-block;
   }
-  
+
+  .logo a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    white-space: nowrap !important;
+  }
+
   /* ラッパーのレイアウト設定 */
   .wrapper {
-    max-width: 1100px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0;
   }
+
+  /* ヘッダー構成（基本） */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--black);
+    color: var(--white-gray);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding: 1rem;
+  }
+
   
   .site-header .wrapper {
     display: flex;
@@ -65,6 +94,7 @@ body {
     align-items: center;
     justify-content: space-between;
     min-width: 0;           /* 子要素が縮むのを妨げない */
+    position: relative; /* ← nav-toggle位置固定用！ */
   }
 
   /* ロゴ部分 */
@@ -86,7 +116,7 @@ body {
   }
 
   .nav-list li a {
-    color: var(--orange);
+    color: var(--white-gray);
     text-decoration: none;
     font-weight: bold;
     font-size: 1.2rem;
@@ -111,31 +141,31 @@ body {
     margin-left: 5rem;
   }
 
-  .history {
-    padding: 0 2rem;
-  }
-  
-  .company-overview {
-    padding: 0 1rem;
-  }
-  .company-data {
-    margin-left: 0;
-    padding-left: 2rem !important;
-  }
-
+  .history, 
+  .costomers, 
   .access {
     padding: 0 2rem;
   }
 
+  .company-overview, .employees {
+    padding: 0 1rem;
+  }
 
-  @media screen and (max-width: 800px) {
+
+  .company-data {
+    margin-top: 1rem !important;
+    padding-left: 2rem !important;
+  }
+
+
+  @media screen and (max-width: 880px) {
     .site-header {
       height: fit-content;
       padding: 0 1rem;
       position: relative; /* ← これが重要！ */
       position: sticky;
       top: 0;
-      z-index: 1000;    
+      z-index: 1000;
     }
 
     .logo {
@@ -143,7 +173,12 @@ body {
       transform: scale(0.6);
       transform-origin: left center;
     }
-    
+
+    .header-icon {
+      height: 40px;
+      min-width: 40px;
+    }
+
     .nav-list {
       font-size: 0.7rem !important;
       flex-direction: column;
@@ -152,7 +187,7 @@ body {
       position: absolute;
       top: 100%; /* ヘッダーの真下に表示 */
       right: 0;
-      background-color: #111; /* 必要なら背景追加 */
+      background-color: var(--black); /* 必要なら背景追加 */
       width: auto;
       max-height: 0;
       overflow: hidden;
@@ -180,6 +215,7 @@ body {
       transform: translateY(0);
       transition-delay: 0s; /* visibilityを即表示 */
     }
+
   
     .map {
       width: 100%;
@@ -206,7 +242,11 @@ body {
     
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 420px) {
+    .left-group {
+      margin-left: 0;
+    }
+
     .footer-list {
       line-height: 1 !important;
     }
@@ -223,6 +263,29 @@ body {
     .company-data {
       column-gap: 0 !important;
     }
+    .project {
+      flex: 1 1 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .area-title h2 {
+      font-size: 130%;
+      margin-bottom: 0;
+    }
+
+    .project-card {
+      width: 100%;
+    }
+
+    .project-area {
+      font-size: 90%;
+    }
+
+    .contact ul li{
+      font-size: 100%;
+    }
+
   }
 
   .services {
@@ -306,20 +369,37 @@ body {
 
   .services {
     padding: 0 2rem;
+    /* display: flex; */
+    flex-wrap: wrap;
+    gap: 1rem 0rem;
   }
 
-  .service ul {
-    padding-left: 1rem;
+  .service-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    padding-left: 0;
   }
 
-  .service img {
-    max-width: 100%;
+  .project-card {
+    width: calc(50% - 1rem);
+    box-sizing: border-box;
+    list-style: none;
+  }
+
+  .project-card img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-top: 0.5rem;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
   }
   
   .services a {
     display: inline-block;
     background-color: var(--orange);
-    margin-top: 1rem;
+    margin: 0 0 0 1rem;
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 4px;
@@ -336,7 +416,7 @@ body {
   
   /* 施工事例（works.html）用 */
   .area-title {
-    margin-left: 2rem;
+    margin:2rem 0 0 2rem;
     font-size: 1.2rem;
   }
 
@@ -362,25 +442,6 @@ body {
     box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
   }
 
-  @media screen and (max-width: 600px) {
-    .project {
-      flex: 1 1 100%;
-      padding: 0;
-      margin: 0;
-    }
-
-    .area-title h2 {
-      font-size: 130%;
-      margin-bottom: 0;
-    }
-
-    .project-area {
-      font-size: 90%;
-    }
-    .contact ul li{
-      font-size: 100%;
-    }
-  }
 
   /* お問い合わせ(contact.html)用 */
   .contact {

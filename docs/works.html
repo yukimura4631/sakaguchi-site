@@ -8,56 +8,92 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- header -->
-    <header class="site-header">
-      <div class="wrapper">
-        <div class="left-group">
-          <img src="images/logo/sakaguchi-logo-cut.jpg" class="header-icon" alt="アイコン">
-          <h1 class="logo"><a href="index.html"><small>株式会社 </small><strong>坂口創造建設</strong></a></h1>
+  <!-- header -->
+  <header class="site-header">
+    <div class="wrapper">
+      <div class="left-group">
+        <a href="index.html"><img src="images/logo/sakaguchi-logo-cut.jpg" class="header-icon" alt="アイコン"></a>
+        <h1 class="logo"><a href="index.html"><small>株式会社 </small><strong>坂口創造建設</strong></a></h1>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="メニュー切替">☰</button>
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="about.html">会社概要</a></li>
+          <li><a href="services.html">事業内容</a></li>
+          <li><a href="works.html">施工実績</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="area-title">施工事例</h2>
+    <div class="project-area">
+      <ul class="service-list">
+      <li class="project-card">
+        <strong>戸建解体（足立区）</strong>
+        <div class="img-row">
+          <div class="img-container">
+            <img src="images/戸建て-before2.jpg" alt="before">
+            <p class="img-label">before</p>
+          </div>
+          <div class="img-container">
+            <img src="images/戸建て-after2.jpg" alt="after">
+            <p class="img-label">after</p>
+          </div>          
         </div>
-        <nav class="main-nav">
-          <button class="nav-toggle" aria-label="メニュー切替">☰</button>
-          <ul class="nav-list">
-            <li><a href="index.html">トップ</a></li>
-            <li><a href="about.html">会社概要</a></li>
-            <li><a href="services.html">事業内容</a></li>
-            <li><a href="works.html">施工実績</a></li>
-            <li><a href="contact.html">お問い合わせ</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <h2 class="area-title">施工事例</h2>
-      <div class="project-area">
-        <section class="project">
-            <h3>住宅リフォーム（船橋市）</h3>
-            <img src="images/sample.jpg" alt="船橋市の住宅リフォーム写真">
-            <p>築40年の一戸建てを、断熱性・デザイン性の高い快適な住空間へとリフォームしました。</p>
-        </section>
-
-        <section class="project">
-          <h3>美容室店舗設計（松戸市）</h3>
-          <img src="images/sample2.jpg" alt="松戸市の美容室店舗写真">
-          <p>木の温もりを活かしたナチュラル空間で、お客様の滞在時間が心地よくなるよう設計しました。</p>
-        </section>
-
-        <section class="project">
-            <h3>住宅リフォーム（自由が丘）</h3>
-            <img src="images/hero.jpg" alt="船橋市の住宅リフォーム写真">
-            <p>築40年の一戸建てを、断熱性・デザイン性の高い快適な住空間へとリフォームしました。</p>
-        </section>
-
-        <section class="project">
-          <h3>美容室店舗設計（世田谷）</h3>
-          <img src="images/sample.jpg" alt="松戸市の美容室店舗写真">
-          <p>木の温もりを活かしたナチュラル空間で、お客様の滞在時間が心地よくなるよう設計しました。</p>
-        </section>
-
-      </div>
-    </main>
-
+      </li>
+      <li class="project-card">
+        <strong>戸建解体（神奈川区）</strong>
+        <div class="img-row">
+          <div class="img-container">
+            <img src="images/木造戸建て-before1.jpg" alt="before">
+            <p class="img-label">before</p>
+          </div>
+          <div class="img-container">
+            <img src="images/木造戸建て-after1.jpg" alt="after">
+            <p class="img-label">after</p>
+          </div>          
+        </div>
+      </li>
+      <li class="project-card">
+        <strong>戸建解体（足立区）</strong>
+        <div class="img-row">
+          <div class="img-container">
+            <img src="images/戸建て-before3.jpg" alt="before">
+            <p class="img-label">before</p>
+          </div>
+          <div class="img-container">
+            <img src="images/戸建て-after3.jpg" alt="after">
+            <p class="img-label">after</p>
+          </div>          
+        </div>
+      </li>
+      <li class="project-card">
+        <strong>内装解体（目黒区）</strong>
+        <div class="img-row">
+          <div class="img-container">
+            <img src="images/naisou-before1.jpg" alt="before">
+            <p class="img-label">before</p>
+          </div>
+          <div class="img-container">
+            <img src="images/naisou-after1.jpg" alt="after">
+            <p class="img-label">after</p>
+          </div>          
+        </div>
+      </li>
+    </ul>
+    </div>
+  </main>
+  <!-- modal -->
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <span class="prev">◀</span>
+    <img class="modal-img" src="" alt="拡大表示">
+    <span class="next">▶</span>
+  </div>
   <footer>
     <div class="wrapper">
       <small>

@@ -1,8 +1,8 @@
 /* 全体のリセットと基本スタイル */
 :root {
   --orange: #f4793e;
-  --black: #1b1a1a;
-  --white-gray: hsl(0, 2%, 80%);
+  --black: #1e1e1e;
+  --white-gray: #e4e3df;
 }
 
 body {
@@ -34,12 +34,14 @@ body {
   }
 
   .header-icon {
-    height: 70px;
+    height: 50px;
     width: auto;
     object-fit: contain;
+    display: block;
   }
 
   .left-group {
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 1rem; /* ← ロゴとアイコンの間に余白 */
@@ -57,7 +59,7 @@ body {
 
   /* ロゴ設定 */
   .logo strong {
-    font-size: 2rem;
+    font-size: 1.5rem;
     white-space: nowrap;
     display: inline-block;
   }
@@ -65,8 +67,9 @@ body {
   .logo a {
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
     white-space: nowrap !important;
+    display: block;
   }
 
   /* ラッパーのレイアウト設定 */
@@ -84,7 +87,7 @@ body {
     background-color: var(--black);
     color: var(--white-gray);
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    padding: 1rem;
+    padding: 0.1rem 1rem;
   }
 
   
@@ -119,7 +122,7 @@ body {
     color: var(--white-gray);
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .nav-list li a:hover {
@@ -151,12 +154,10 @@ body {
     padding: 0 1rem;
   }
 
-
   .company-data {
     margin-top: 1rem !important;
     padding-left: 2rem !important;
   }
-
 
   @media screen and (max-width: 880px) {
     .site-header {
@@ -170,17 +171,17 @@ body {
 
     .logo {
       display: inline-block;
-      transform: scale(0.6);
+      transform: scale(0.7);
       transform-origin: left center;
     }
 
     .header-icon {
       height: 40px;
-      min-width: 40px;
+      min-width: 40px;            
     }
 
     .nav-list {
-      font-size: 0.7rem !important;
+      font-size: 0.6rem !important;
       flex-direction: column;
       gap: 0.5rem;
       padding: 1rem;
@@ -215,14 +216,13 @@ body {
       transform: translateY(0);
       transition-delay: 0s; /* visibilityを即表示 */
     }
-
   
     .map {
       width: 100%;
     }
     
-    .top-image {
-      margin: 0.5rem 1rem !important;
+    .project-card {
+      width: 100% !important;
     }
 
     footer {
@@ -237,9 +237,15 @@ body {
     }
     
     .contact-brock {
-      padding-top: 3;
+      padding-top: 2.5rem;
     }
     
+  }
+
+  @media screen and (max-width: 750px) {
+    .contact-brock {
+      padding-top: 0;
+    }
   }
   
   @media screen and (max-width: 420px) {
@@ -286,6 +292,12 @@ body {
       font-size: 100%;
     }
 
+    .modal-img {
+      width: 70vw !important;
+      height: auto !important;
+      object-fit: contain !important;
+    }
+
   }
 
   .services {
@@ -317,11 +329,13 @@ body {
 
   .top-image {
     text-align: center;
-    margin: 0.2rem 12rem; /* 上下の余白はお好みで */
     overflow: hidden;
     position: relative;
-    max-width: 100%;
-    aspect-ratio: 4 / 3;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    padding: 0;
   }
   
   .slideshow {
@@ -406,7 +420,7 @@ body {
   }
   
   .services a:hover {
-    background-color: #333;
+    opacity: 0.8;
   }
 
   /* 事業内容（services.html）用 */
@@ -418,6 +432,39 @@ body {
   .area-title {
     margin:2rem 0 0 2rem;
     font-size: 1.2rem;
+  }
+
+  .project-card {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .img-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start; /* ← 高さ揃えの基本 */
+  }
+
+  .img-row img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .img-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-label {
+    margin-top: 0.3rem;
+    font-size: 1rem;
+    color: var(--black);
+    letter-spacing: 0.05em;
   }
 
   .project-area {
@@ -442,7 +489,6 @@ body {
     box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
   }
 
-
   /* お問い合わせ(contact.html)用 */
   .contact {
     padding: 0 3rem 1rem 3rem;
@@ -465,17 +511,78 @@ body {
   .contact a:hover {
     text-decoration: underline;
   }
+
+  /* モーダル */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-img {
+    width: auto;
+    max-width: 80vw;
+    height: 80vh;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    image-rendering: auto; /* ← 拡大時の滑らかさを保つ */
+  }
+
+  .prev,
+  .next {
+    color: #e4e3df;
+    filter: brightness(0.8);
+    transition: text-shadow 0.3s ease;
+    font-size: 1rem;
+    margin: 0 1rem;
+    cursor: pointer;
+    user-select: none; /* ← 文字の選択も禁止できる！ */
+  }
+
+  .prev:hover,
+  .next:hover {
+    filter: brightness(1.5);
+    text-shadow: 0 0 20px cornsilk;
+    transform: scale(1.1);
+  }
+
+  .prev:active,
+  .next:active {
+    transform: scale(0.9);
+  }
+
+  .prev,
+  .next {
+    transition: all 0.3s ease;
+  }
+
+  .close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: var(--white-gray);
+    cursor: pointer;
+  }
   
   /* フッター */
   footer {
     background-color: #111;
-    color: #fff;
+    color: var(--white-gray);
     /* text-align: center; */
     padding: 0rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     display: flex;
   }
-
 
   .footer-contents {
     display: flex;

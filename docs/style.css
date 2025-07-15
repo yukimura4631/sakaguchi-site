@@ -406,6 +406,7 @@ body {
   .service-list {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 1rem;
     gap: 2rem;
     justify-content: space-between;
     padding-left: 0;
@@ -445,7 +446,7 @@ body {
   
   /* 施工事例（works.html）用 */
   .area-title {
-    margin:2rem 0 0 2rem;
+    margin:2rem 0 0 0;
     font-size: 1.2rem;
   }
 
@@ -483,7 +484,8 @@ body {
   }
 
   .project-area {
-    padding: 0 3rem;
+    padding: 0 2rem;
+    margin: 0 2rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem 0rem;
@@ -506,7 +508,11 @@ body {
 
   /* お問い合わせ(contact.html)用 */
   .contact {
-    padding: 0 3rem 1rem 3rem;
+    padding: 0 3rem 1rem 4rem;
+  }
+
+  .contact-contents {
+    margin-left: 1rem;
   }
 
   .contact ul {

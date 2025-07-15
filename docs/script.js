@@ -78,4 +78,26 @@ document.addEventListener('DOMContentLoaded', () => {
       showModal(currentIndex);
     }
   });
+
+  let touchStartX = 0;
+
+  modalImg.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  modalImg.addEventListener("touchend", (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        // 左にスワイプ → 次へ
+        currentIndex = (currentIndex + 1) % modalImages.length;
+      } else {
+        // 右にスワイプ → 前へ
+        currentIndex = (currentIndex - 1 + modalImages.length) % modalImages.length;
+      }
+      showModal(currentIndex);
+    }
+  });
 });

@@ -1,7 +1,7 @@
 /* 全体のリセットと基本スタイル */
 :root {
   --orange: #f4793e;
-  --black: #1e1e1e;
+  --black: #000;
   --white-gray: #e4e3df;
 }
 

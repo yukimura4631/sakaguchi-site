@@ -406,7 +406,7 @@ body {
   .service-list {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 1rem;
+    margin: 1rem;
     gap: 2rem;
     justify-content: space-between;
     padding-left: 0;
